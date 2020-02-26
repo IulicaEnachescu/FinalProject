@@ -1,0 +1,49 @@
+﻿@model SchoolWebApp.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2><font color="blue"> Login </font></h2>
+
+
+
+<div id="login-div">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <div>
+            <label class="field-validation-error text-danger">@Html.DisplayFor(m => m.LoginErrorMessage)</label>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "******", type = "password" })
+            @Html.ValidationMessageFor(m => m.Password)
+            <a class="float-xl-left" href="#">Forgot?</a>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox">
+                <label> <input type="checkbox"> Save password </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success"> Login  </button>
+        </div>
+
+    }
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
+
